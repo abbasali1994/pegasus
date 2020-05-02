@@ -14,41 +14,49 @@
   <script async="" src="./js/app.min.js"></script>
   <link href="./css/index.css" rel="stylesheet">
 </head>
-<script>
-  // Update the count down every 1 second
-  var x = setInterval(function () {
-    // Find the distance between now an the count down date
-    var distance =  (new Date("05/05/2020").getTime() - new Date().getTime());
 
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    // Display the result in the element with id="demo"
-    document.getElementById("timer").innerHTML =
-      "<div class=\"days\"> \
-  <div class=\"numbers\">" + days + "</div>days</div> \
-<div class=\"hours\"> \
-  <div class=\"numbers\">" + hours + "</div>hours</div> \
-<div class=\"minutes\"> \
-  <div class=\"numbers\">" + minutes + "</div>minutes</div> \
-<div class=\"seconds\"> \
-  <div class=\"numbers\">" + seconds + "</div>seconds</div> \
-</div>";
-
-    // If the count down is finished, write some text
-    if (distance < 0) {
-      clearInterval(x);
-      document.getElementById("countdown").style.display = "none"
-      document.getElementById("bday").style.display = ""
-    }
-  }, 1000);
-
-</script>
 
 <body id="listings" oncontextmenu="return false" data-gr-c-s-loaded="true">
+  <iframe src="./images/silence.mp3" allow="autoplay" id="audio" style="display: none"></iframe>
+  <audio hidden controls autoplay loop >
+  <source src="./images/happy-birthday.mp3" type="audio/mpeg">
+    <source src="./images/happy-birthday.ogg" type="audio/ogg">
+  Your browser does not support the audio element.
+</audio>
+  <script>
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+      // Find the distance between now an the count down date
+      var distance =  (new Date("05/05/2020").getTime() - new Date().getTime());
+  
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      // Display the result in the element with id="demo"
+      document.getElementById("timer").innerHTML =
+        "<div class=\"days\"> \
+    <div class=\"numbers\">" + days + "</div>days</div> \
+  <div class=\"hours\"> \
+    <div class=\"numbers\">" + hours + "</div>hours</div> \
+  <div class=\"minutes\"> \
+    <div class=\"numbers\">" + minutes + "</div>minutes</div> \
+  <div class=\"seconds\"> \
+    <div class=\"numbers\">" + seconds + "</div>seconds</div> \
+  </div>";
+  
+      // If the count down is finished, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").style.display = "none"
+        document.getElementById("bday").style.display = ""
+      }
+    }, 1000);
+
+  </script>
   <div class="countdown-container" id="countdown">
+    
     <div class="balloon white">
       <div class="star-red"></div>
       <div class="face">
